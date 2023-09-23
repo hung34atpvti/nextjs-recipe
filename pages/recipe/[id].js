@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import styles from "../styles/Application.module.css";
+import styles from "../../styles/Application.module.css";
 
 export default function RecipeId() {
   const [recipe, setRecipe] = useState({ ingredients: "" });
@@ -29,12 +29,10 @@ export default function RecipeId() {
 
   const deleteRecipe = () => {
     const url = `/api/v1/recipes/${id}`;
-    const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
       method: "DELETE",
       headers: {
-        "X-CSRF-Token": token,
         "Content-Type": "application/json",
       },
     })

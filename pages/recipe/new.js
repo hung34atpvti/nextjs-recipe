@@ -35,11 +35,9 @@ export default function RecipeNew() {
       instruction: stripHtmlEntities(instruction),
     };
 
-    const token = document.querySelector('meta[name="csrf-token"]').content;
     fetch(url, {
       method: "POST",
       headers: {
-        "X-CSRF-Token": token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
@@ -96,7 +94,10 @@ export default function RecipeNew() {
               required
               onChange={(event) => onChange(event, setInstruction)}
             />
-            <button type="submit" className={`btn ${styles['custom-button']} mt-3`}>
+            <button
+              type="submit"
+              className={`btn ${styles["custom-button"]} mt-3`}
+            >
               Create Recipe
             </button>
             <Link href="/recipes" className="btn btn-link mt-3">
