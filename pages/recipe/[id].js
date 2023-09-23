@@ -2,7 +2,8 @@ import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import styles from "../styles/Application.module.css";
 
 export default function RecipeId() {
   const [recipe, setRecipe] = useState({ ingredients: "" });
@@ -67,7 +68,7 @@ export default function RecipeId() {
 
   return (
     <div className="">
-      <div className="hero position-relative d-flex align-items-center justify-content-center">
+      <div className={`${styles.hero} position-relative d-flex align-items-center justify-content-center`}>
         <img
           src={recipe.image}
           alt={`${recipe.name} image`}

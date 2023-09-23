@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import styles from "../styles/Application.module.css";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
           A curated list of recipes for the best homemade meal and delicacies.
         </p>
         <hr className="my-4" />
-        <Link href="/recipes" className="btn btn-lg custom-button" role="button">
+        <Link href="/recipes" className={`btn btn-lg ${styles['custom-button']}`} role="button">
           View Recipes
         </Link>
       </div>

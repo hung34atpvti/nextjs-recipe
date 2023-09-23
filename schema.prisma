@@ -1,0 +1,20 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+// Define your database connection
+datasource db {
+    provider = "postgresql" // Change this to your database provider
+    url      = env("DATABASE_URL") // You can also specify the database connection string directly
+}
+
+model Recipe  {
+    @@map(name: "recipes")
+    id          BigInt   @id @default(autoincrement()) @map(name: "id")
+    name        String   @map(name: "name")
+    ingredients String   @map(name: "ingredients")
+    instruction String   @map(name: "instruction")
+    image       String   @default("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80") @map(name: "image")
+    createdAt   DateTime @default(now()) @map(name: "created_at")
+    updatedAt   DateTime @default(now()) @map(name: "updated_at")
+}

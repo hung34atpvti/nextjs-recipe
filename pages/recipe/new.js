@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import styles from "../../styles/Application.module.css";
 
 export default function RecipeNew() {
   const router = useRouter();
@@ -95,7 +96,7 @@ export default function RecipeNew() {
               required
               onChange={(event) => onChange(event, setInstruction)}
             />
-            <button type="submit" className="btn custom-button mt-3">
+            <button type="submit" className={`btn ${styles['custom-button']} mt-3`}>
               Create Recipe
             </button>
             <Link href="/recipes" className="btn btn-link mt-3">

@@ -1,11 +1,12 @@
-import Link from 'next/link';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import styles from "../styles/Application.module.css";
 
 export default function Recipes() {
-    const router = useRouter();
+  const router = useRouter();
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -31,7 +32,10 @@ export default function Recipes() {
         />
         <div className="card-body">
           <h5 className="card-title">{recipe.name}</h5>
-          <Link href={`/recipe/${recipe.id}`} className="btn custom-button">
+          <Link
+            href={`/recipe/${recipe.id}`}
+            className={`btn ${styles['custom-button']}`}
+          >
             View Recipe
           </Link>
         </div>
@@ -61,7 +65,7 @@ export default function Recipes() {
       <div className="py-5">
         <main className="container">
           <div className="text-end mb-3">
-            <Link href="/recipe/new" className="btn custom-button">
+            <Link href="/recipe/new" className={`btn ${styles['custom-button']}`}>
               Create New Recipe
             </Link>
           </div>
